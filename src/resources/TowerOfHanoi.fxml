@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="275.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="towerOfHanoi.Controller">
+   <center>
+      <HBox prefHeight="105.0" prefWidth="438.0" style="-fx-background-color: #000;" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="76.0" prefWidth="266.0">
+               <children>
+                  <ListView fx:id="stack1" onDragDetected="#handleDragDetected" onDragDone="#handleDragDone" onDragDropped="#handleDragDropped" onDragOver="#handleDragOver" prefHeight="208.0" prefWidth="250.0" />
+               </children>
+            </Pane>
+            <Pane prefHeight="238.0" prefWidth="266.0">
+               <children>
+                  <ListView fx:id="stack2" layoutX="8.0" onDragDetected="#handleDragDetected" onDragDone="#handleDragDone" onDragDropped="#handleDragDropped" onDragOver="#handleDragOver" prefHeight="208.0" prefWidth="250.0" />
+               </children></Pane>
+            <Pane prefHeight="77.0" prefWidth="266.0">
+               <children>
+                  <ListView fx:id="stack3" layoutX="14.0" onDragDetected="#handleDragDetected" onDragDone="#handleDragDone" onDragDropped="#handleDragDropped" onDragOver="#handleDragOver" prefHeight="205.0" prefWidth="250.0" />
+               </children>
+            </Pane>
+         </children>
+      </HBox>
+   </center>
+   <bottom>
+      <GridPane prefHeight="37.0" prefWidth="176.0" BorderPane.alignment="CENTER">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="374.0" minWidth="10.0" prefWidth="223.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="235.0" minWidth="10.0" prefWidth="235.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="235.0" minWidth="10.0" prefWidth="235.0" />
+            <ColumnConstraints maxWidth="0.0" minWidth="0.0" prefWidth="0.0" />
+            <ColumnConstraints maxWidth="0.0" minWidth="0.0" prefWidth="0.0" />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <FlowPane alignment="CENTER_LEFT">
+               <children>
+                  <Label style="-fx-label-padding: 10px 5px;" text="Moves :" />
+                  <Label fx:id="movesCount" style="-fx-label-padding: 10px  20px 10px 5px;" text="0" />
+                  <Button fx:id="resetButton" mnemonicParsing="false" onAction="#restartButtonHandler" text="Restart">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets></Button>
+               </children>
+            </FlowPane>
+            <FlowPane alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="187.0" GridPane.columnIndex="2" GridPane.columnSpan="5">
+               <children>
+                  <Label alignment="TOP_LEFT" prefHeight="37.0" prefWidth="113.0" style="-fx-label-padding: 10px 5px;" text="Minimum Moves : " />
+                  <Label fx:id="minimumMoves" style="-fx-label-padding: 10px 5px;" text="0" />
+               </children>
+            </FlowPane>
+            <FlowPane GridPane.columnIndex="1">
+               <children>
+                  <Label style="-fx-label-padding: 10px 20px;" text="Discs" textAlignment="CENTER" />
+                  <ComboBox fx:id="numRingsComboBox" onAction="#comboBoxActionPerformed" prefHeight="25.0" prefWidth="83.0" promptText="3" visibleRowCount="6" />
+               </children>
+            </FlowPane>
+            <FlowPane GridPane.columnIndex="7">
+               <children>
+                  <Label fx:id="status" style="-fx-label-padding: 10px 0;" text="You Won" textFill="#f4f4f4">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
+               </children>
+            </FlowPane>
+         </children>
+      </GridPane>
+   </bottom>
+</BorderPane>
